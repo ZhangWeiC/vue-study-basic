@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3.1</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<!-- 对于任何复杂逻辑，你都应当使用计算属性。可以像绑定普通属性一样在模板中绑定计算属性 -->
+	<!-- el不要挂载在body和html上 -->
+	<!-- 我们可以将同一函数定义为一个方法而不是一个计算属性。两种方式的最终结果确实是完全相同的。然而，不同的是计算属性是基于它们的依赖进行缓存的。 只在相关依赖发生改变时它们才会重新求值。这就意味着只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。-->
+
+
+	<div id="container">
+		<p> {{ firstName }} </p>
+		<p> {{ lastName }} </p>
+		<p> {{ fullName }} </p>
+	</div>
+</body>
+<script>
+	var vm = new Vue({
+		el: '#container',
+		data: {
+			firstName: 'Weichen',
+			lastName: 'Zhang'
+		},
+		// 计算属性
+		computed: {
+
+			fullName: {
+				get: function(){
+					return this.firstName + ' ' + this.lastName;
+				},
+
+				set: function(newValue){
+					var names = newValue.split(' ');
+					this.firstName = names[0];
+					this.lastName = names[names.length-1];
+				}
+			}
+			
+		},
+		// 侦听属性
+		watch: {
+			//....
+		},
+
+	});
+</script>
+</html>
