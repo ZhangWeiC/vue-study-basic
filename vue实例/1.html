@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.1</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	
+</body>
+<script>
+	var data = {
+		a : 1,
+	}
+
+	var vm = new Vue({
+		data : data,
+	});
+
+	console.log( data.a == vm.a );
+
+	data.a = 3;
+	console.log( data.a );
+
+	// Object.freeze()这会阻止修改现有的属性，也意味着响应系统无法再追踪变化
+	// 除了数据属性，Vue 实例还暴露了一些有用的实例属性与方法。它们都有前缀 $，以便与用户定义的属性区分开来。
+	// 每个 Vue 实例在被创建时都要经过一系列的初始化过程——例如，需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等。同时在这个过程中也会运行一些叫做生命周期钩子的函数，这给了用户在不同阶段添加自己的代码的机会。
+
+
+</script>
+</html>

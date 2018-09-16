@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2.2</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="el">
+		<!-- Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v-bind 指令 -->
+		<p v-bind:id="myId"> {{ rawHtml }} </p>
+		<!-- 对于所有的数据绑定，Vue.js 都提供了完全的 JavaScript 表达式支持。 -->
+		<!-- 有个限制就是，每个绑定都只能包含单个表达式，所以下面的例子都不会生效 -->
+		<p>{{ nameArr.split('').reverse().join('') }}</p>
+	</div>
+	
+</body>
+<script>
+	var vm = new Vue({
+		el:  "#el",
+		data: {
+			rawHtml: '<span style="color:red">this should be red</span>',
+			myId: 'theP',
+			nameArr: 'Weichenz',
+		}
+	});
+</script>
+</html>

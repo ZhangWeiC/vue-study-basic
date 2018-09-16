@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="el">
+		<p> {{rawHtml}} </p>
+		<span v-html="rawHtml">llll</span>
+		<!-- 这个 span 的内容将会被替换成为属性值 rawHtml，直接作为 HTML——会忽略解析属性值中的数据绑定。 -->
+	</div>
+	
+</body>
+<script>
+	var vm = new Vue({
+		el:  "#el",
+		data: {
+			rawHtml: '<span style="color:red">this should be red</span>'
+		}
+	});
+</script>
+</html>

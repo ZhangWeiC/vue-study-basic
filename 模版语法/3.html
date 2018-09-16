@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2.3</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="el">
+		<!-- 指令 (Directives) 是带有 v- 前缀的特殊特性。指令特性的值预期是单个 JavaScript 表达式。指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。 -->
+		<p v-if='seen'>lalala</p>
+		<!-- 参数 一些指令能够接收一个“参数”，在指令名称之后以冒号表示。例如，v-bind 指令可以用于响应式地更新 HTML 特性 -->
+		<a v-bind:href="url">click here</a>
+	</div>
+	
+</body>
+<script>
+	var vm = new Vue({
+		el:  "#el",
+		data: {
+			rawHtml: '<span style="color:red">this should be red</span>',
+			myId: 'theP',
+			nameArr: 'Weichenz',
+			seen: true,
+			url: 'http://www.baidu.com'
+		}
+	});
+</script>
+</html>
